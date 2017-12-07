@@ -1,4 +1,20 @@
 <?php 
+
+function is_session_started()
+{
+    if ( php_sapi_name() !== 'cli' ) {
+        if ( version_compare(phpversion(), '5.4.0', '>=') ) {
+            return session_status() === PHP_SESSION_ACTIVE ? TRUE : FALSE;
+        } else {
+            return session_id() === '' ? FALSE : TRUE;
+        }
+    }
+    return FALSE;
+}
+
+// Example
+if ( is_session_started() === FALSE ) session_start();
+
   
     include_once 'model/connexion_bd.php';
     include_once 'model/utilisateur.php';
@@ -18,10 +34,10 @@
 </head>
 <body>
 <div class="container-fluid">
-	<h1>RESAM</h1> <button type="button" class="btn btn-primary btn-sm" onclick="location.href='connexion.php'">Connexion</button>
-
+	<h1>RESAM</h1> 
 	<div class="btn-group" role="group" aria-label="Basic example">
 	<button type="button" class="btn btn-secondary" onclick="location.href='index.php'">Accueil</button>
-    <button type="button" class="btn btn-secondary" onclick="location.href='connexion.php'">Connexion</button>
-      <button type="button" class="btn btn-secondary" onclick="location.href='creeCompte.php'">Créer un  compte</button>
+    <button type="button" class="btn btn-secondary" onclick="location.href='connexion.php'">Connexion</button>       
+    <button type="button" class="btn btn-secondary" onclick="location.href='deconnexion.php'">Déconnexion</button>   
+    <button type="button" class="btn btn-secondary" onclick="location.href='creeCompte.php'">Créer un  compte</button>
 	</div>

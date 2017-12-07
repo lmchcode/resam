@@ -41,7 +41,7 @@
  </div>
  
  <div class="form-group">
- <label for="tel">Telephone/label>
+ <label for="tel">Telephone</label>
  <input type="text" class="form-control" id="tel" name="tel" aria-describedby="Téléphone" placeholder="Entrez numéro de téléphone">
  </div>
  

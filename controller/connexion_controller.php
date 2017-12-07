@@ -9,13 +9,15 @@ session_start();
 if ($connected == true){
     $_SESSION['is_loged'] = 1;
     echo "ok";
-    header("Location: ../admin_livre.php");
+    
     
 }else{
     $_SESSION['is_loged'] = 0;
     echo "nok";
-    header("Location: ../index.php");
 }
 
 
 ?>
+<p>
+<a href="../index.php">Prends ton menton on s'en va</a>
+</p>
